@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Student List</title>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <script src="Scripts/jquery-3.3.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var olOfStudent = $('#olOfStudent');
+            $('#getStudent').click(function () {
+                $.ajax({
+                    type: 'GET',
+                    url: "api/student/",
+                    //dataType: 'json',
+                    dataType: 'jsonp',
+                    success: function (data) {
+                        olOfStudent.empty();
+                        $.each(data, function (index, val) {
+                            var fullName = val.FirstName + ' ' + val.LastName;
+                            olOfStudent.append('<li class="list-group-item">' + fullName + '</li>');
+                        });
+                    }
+                });
+            });
+            $('#clearStudent').click(function () {
+                olOfStudent.empty();
+            });
+        });
+    </script>
+</head>
+<body class="container body-content">
+    <div style="margin-top: 20px;" class="col-sm-4">
+        <input type="button" id="getStudent" name="getStudent" class="btn btn-primary" value="Get Student List" />
+        <input type="button" id="clearStudent" name="clearStudent" class="btn btn-danger" value="Clear Student List" />
+        <br />
+        <br />
+        <ul id="olOfStudent" class="list-group"></ul>
+        <!--<table>
+        <thead>
+            <tr>
+                <td>
+                    Full Name
+                </td>
+            </tr>
+
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <ul id="olOfStudent" class="list-group"></ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>-->
+    </div>
+</body>
+</html>
