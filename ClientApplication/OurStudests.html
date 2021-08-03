@@ -12,8 +12,8 @@
                 $.ajax({
                     type: 'GET',
                     url: "http://localhost:54394/api/student/",
-                    //dataType: 'json',
-                    dataType: 'jsonp',
+                    dataType: 'json',
+                    //dataType: 'jsonp',
                     success: function (data) {
                         olOfStudent.empty();
                         $.each(data, function (index, val) {

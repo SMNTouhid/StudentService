@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net.Http.Formatting;
 using System.Net.Http.Headers;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using WebApiContrib.Formatting.Jsonp;
 
 namespace StudentService
@@ -46,12 +47,12 @@ namespace StudentService
             //config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new System.Net.Http.Headers.MediaTypeHeaderValue("text/html"));
             //config.Formatters.Add(new CustomJsonFormatter());
             //calling asp.net web api service in a cross domain using jQuery ajax
-            var jsonpFormatter = new JsonpMediaTypeFormatter(config.Formatters.JsonFormatter);
-            config.Formatters.Insert(0, jsonpFormatter);
+            //var jsonpFormatter = new JsonpMediaTypeFormatter(config.Formatters.JsonFormatter);
+            //config.Formatters.Insert(0, jsonpFormatter);
 
             //cross origin resource sharing asp.net web api
-            //EnableCrosAttribute cors = new EnableCrosAttribute("*", "*", "*");
-            //config.EnableCors(cors);
+            EnableCorsAttribute cors = new EnableCorsAttribute("*", "*", "*");
+            config.EnableCors(cors);
 
         }
     }
