@@ -9,7 +9,7 @@ using System.Web.Http.Cors;
 
 namespace StudentService.Controllers
 {
-    [EnableCorsAttribute("*", "*", "*")]
+    [EnableCorsAttribute("http://localhost:51377", "*", "*")]
     public class StudentController : ApiController
     {
         StudentEntities entities = new StudentEntities();
@@ -23,7 +23,7 @@ namespace StudentService.Controllers
         //    return entities.StudentInfoes.ToList();
         //}
         [HttpGet]
-        [DisableCors]
+        //[DisableCors]
         public HttpResponseMessage AllStudents(string gender="all")
         {
             switch (gender.ToLower())
