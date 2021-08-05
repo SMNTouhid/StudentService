@@ -51,8 +51,10 @@ namespace StudentService
             //config.Formatters.Insert(0, jsonpFormatter);
 
             //cross origin resource sharing asp.net web api globally 
-            EnableCorsAttribute cors = new EnableCorsAttribute("*", "*", "*");
-            config.EnableCors(cors);
+            //EnableCorsAttribute cors = new EnableCorsAttribute("*", "*", "*");
+            //config.EnableCors(cors);
+            //Enable Cors for specific controller or action method 
+            config.EnableCors();
 
         }
     }
