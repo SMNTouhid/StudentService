@@ -23,6 +23,7 @@ namespace StudentService.Controllers
         //    return entities.StudentInfoes.ToList();
         //}
         [HttpGet]
+        [DisableCors]
         public HttpResponseMessage AllStudents(string gender="all")
         {
             switch (gender.ToLower())
