@@ -50,7 +50,7 @@ namespace StudentService
             //var jsonpFormatter = new JsonpMediaTypeFormatter(config.Formatters.JsonFormatter);
             //config.Formatters.Insert(0, jsonpFormatter);
 
-            //cross origin resource sharing asp.net web api
+            //cross origin resource sharing asp.net web api globally 
             EnableCorsAttribute cors = new EnableCorsAttribute("*", "*", "*");
             config.EnableCors(cors);
 
